@@ -10,16 +10,16 @@ var studentSchema = new Schema({
 	img: String,
 	face_link:String,
 	twitt_link:String,
-	linked_link:String
-	//updated: Date
+	linked_link:String,
+	updated: Date
 });
 
-// studentSchema.pre('save', function(next) {
-// 	var currentDate = new Date();
-// 	this.updated = currentDate;
+studentSchema.pre('save', function(next) {
+	var currentDate = new Date();
+	this.updated = currentDate;
 
-// 	next();
-// });
+	next();
+});
 
 var Student = mongoose.model('students', studentSchema);
 module.exports = Student;

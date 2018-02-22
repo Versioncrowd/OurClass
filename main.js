@@ -61,6 +61,11 @@ router.post('/api/logout'), (req,res) => {
 }
 
 
+// define a simple route
+router.get('/api', function(req, res){
+    res.json({"message": "Welcome to Students application REST-ful API. Organize and keep track of all your students!"});
+});
+
 // Create a new student
 router.post('/api/student', student.create);
 

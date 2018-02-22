@@ -1,3 +1,5 @@
+import adminModel from './modules/dashbord.js';
+
 $(() => {
 
     function mkCards(data) {
@@ -51,9 +53,13 @@ $(() => {
             console.log('error', xhr);
         });
 
+<<<<<<< HEAD
 // Login Functionality
 
 $('#login').on('click', function(e) {
     e.preventDefault();
     $('#loginfield').toggle();
 })
+=======
+});
+>>>>>>> 076df5690830aa79a17749e678c27dbfdc27b9bc
