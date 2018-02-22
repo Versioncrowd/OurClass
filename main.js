@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.use("/", router);
 
-const port = 3000;
+const port = 3080;
 
 app.use('/assets', express.static(path.join(__dirname, 'app/views/assets')));
 
@@ -90,7 +90,14 @@ router.get("/", (req, res) => {
 
 // listen for requests
 
-
+function auth(req, res, next) {
+  if(req.session && req.session.user === 'admin' && req.session.admin) {
+      return next();
+  }
+  else {
+      return res.sendStatus(401);
+  }
+}
 
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}`);
@@ -127,11 +134,3 @@ app.listen(port, () => {
 
 
 
-function auth(req, res, next) {
-  if(req.session && req.session.user === 'admin' && req.session.admin) {
-      return next();
-  }
-  else {
-      return res.sendStatus(401);
-  }
-}
