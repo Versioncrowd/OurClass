@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.use("/", router);
 
-const port = 3080;
+const port = 3000;
 
 app.use('/assets', express.static(path.join(__dirname, 'app/views/assets')));
 
