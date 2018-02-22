@@ -1,12 +1,4 @@
-import sayText from './modules/sayHi.js';
-
-console.log('Hello from script');
-
-$(() => {
-
-sayText('Hello World');
-
-
+$(function() {
   var winH = $(window).height();
   uppper = $('.upper-bar').innerHeight();
   nav = $('.navbar').innerHeight();
@@ -24,8 +16,6 @@ sayText('Hello World');
     }
   })
 
+  console.log('Hello from stylescript')
 
-
-
-
-});
+})

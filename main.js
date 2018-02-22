@@ -1,8 +1,10 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-const student = require('./app/controllers/students.controllers.js');
+const student = require('./app/controllers/students.controllers');
+const Student1 = require('./app/studentmodel.js');
 const mongoose = require('mongoose');
+const session = require('express-session');
 
 // create express app
 const app = express();
@@ -40,7 +42,7 @@ router.post('/api/login', (req, res) => {
   if(!req.body.username && !req.body.password){
     res.json('Usernmae & password is required')
   }else {}
-  Student.find({'name':req.body.username}, (err,student) =>{
+  Student1.find({'name':req.body.username}, (err,student) =>{
     if(!student) return re.send({err:'username or password is incoreect'})
       else {
         if (student.role === 1 && student.password === req.body.password){
@@ -93,3 +95,43 @@ router.get("/", (req, res) => {
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}`);
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function auth(req, res, next) {
+  if(req.session && req.session.user === 'admin' && req.session.admin) {
+      return next();
+  }
+  else {
+      return res.sendStatus(401);
+  }
+}
