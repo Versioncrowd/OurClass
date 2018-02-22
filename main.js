@@ -1,7 +1,8 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-const Student = require('./app/controllers/students.controllers');
+const student = require('./app/controllers/students.controllers');
+const Student1 = require('./app/studentmodel.js');
 const mongoose = require('mongoose');
 const session = require('express-session');
 
@@ -41,7 +42,7 @@ router.post('/api/login', (req, res) => {
   if(!req.body.username && !req.body.password){
     res.json('Usernmae & password is required')
   }else {}
-  Student.find({'name':req.body.username}, (err,student) =>{
+  Student1.find({'name':req.body.username}, (err,student) =>{
     if(!student) return re.send({err:'username or password is incoreect'})
       else {
         if (student.role === 1 && student.password === req.body.password){
@@ -60,12 +61,37 @@ router.post('/api/logout'), (req,res) => {
 }
 
 
+// Create a new student
+router.post('/api/student', student.create);
+
+// Retrieve all students
+router.get('/api/students', student.findAll);
+
+// Retrieve a single student with studentId
+router.get('/api/student/:studentId', student.findOne);
+
+router.get('/api/subjects/:subject', student.findBySubject);
+
+router.get('/api/genders/:gender', student.findByGender);
+
+router.get('/api/age/:age', student.findByAge);
+
+// Update a student with studentId
+router.put('/api/student/:studentId', student.update);
+
+// Delete a student with studentId
+router.delete('/api/student/:studentId', student.delete);
+
+
 // Web
 router.get("/", (req, res) => {
   res.sendFile('index.html', { root: 'app/views' })
 });
 
 // listen for requests
+
+
+
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}`);
 });

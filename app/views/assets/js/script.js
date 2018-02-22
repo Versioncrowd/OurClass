@@ -1,13 +1,14 @@
 
 $(() => {
 
-    function mkCards(data = defaultStudent) {
-      data.forEach(student) => {
+    function mkCards(data) {
+      data.forEach((student) => {
         const name = student.name;
-        const quote = student.quote;
+        const quote = student.quate;
         const comeFrom = student.from;
         const livesIn = student.livesIn;
         const tech = student.tech;
+        const img = student.img;
 
         $('#content').append( `
          <div class="col-md-4 col-sm-6">
@@ -30,22 +31,14 @@ $(() => {
                 </div>
               </div>
             </div>`);  
-      }
+      });
     }
-
-    const defaultStudent = [{
-          name: 'Nebras',
-          quote: 'fhjadsfhasjkhfkajs',
-          comeFrom: 'Syria'
-        }]
-
-    mkcards(data);
 
     console.log('Hello from script');
 
 
     $.ajax({
-            url: "http://localhost:3000/content",
+            url: "/api/students",
             method: "GET",
             contentType: "application/json",
 
@@ -56,7 +49,7 @@ $(() => {
                 console.log(data.err)
 
             } else {
-                createDate(data)
+                mkCards(data)
 
             }
         })
