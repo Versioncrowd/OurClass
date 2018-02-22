@@ -51,6 +51,9 @@ $(() => {
             console.log('error', xhr);
         });
 
+// Login Functionality
 
-
-});
+$('#login').on('click', function(e) {
+    e.preventDefault();
+    $('#loginfield').toggle();
+})
