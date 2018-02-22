@@ -17,7 +17,9 @@ second color:#ec1c23;
 .upper-bar span {
   color: #bfc6c9;
 }
-
+.slider,.carousel-item {
+  height: 100vh;
+}
 .upper-bar .get-quote {
   display: inline-block;
   border: 1px solid #ec1c23;
