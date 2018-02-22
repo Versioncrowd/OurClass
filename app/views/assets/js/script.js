@@ -1,37 +1,31 @@
-
 $(() => {
 
     function mkCards(data) {
-      data.forEach((student) => {
-        const name = student.name;
-        const quote = student.quate;
-        const comeFrom = student.from;
-        const livesIn = student.livesIn;
-        const tech = student.tech;
-        const img = student.img;
+        data.forEach((student) => {
 
-        $('#content').append( `
-         <div class="col-md-4 col-sm-6">
+            $('#content').append(`
+         <div class="col-md-4 col-sm-6 data">
               <div class="card p-4">
-                <img class="me" src="https://gravatar.com/avatar/25b1fc64ba12614875c1e467d7e4c86e?s=512" alt="" />
+                <img class="me" src="${student.img}" alt="" />
                 <div class="card-block">
                   <h3 class="card-title">${student.name}</h3>
-                  <p class="card-text"><strong>Quote</strong> ${student.quote}</p>
-                  <p class="card-text"><strong>Comes from:</strong> ${student.comeFrom}
+                  <p class="card-text"><strong>Quote</strong> ${student.quate}</p>
+                  <p class="card-text"><strong>Comes from:</strong> ${student.from}
                     <br/>
-                    <strong>Lives in:</strong> ${student.livesIn}
+                    <strong>Lives in:</strong> ${student.living}
                     <br/>
-                    <strong>Favourite Technologies:</strong> ${student.tech}</p>
+                    <strong>Favourite Technologies:</strong> ${student.fav_tich}</p>
                   <div class="social">
-                    <a href="https://twitter.com/bphillips201"><i id="twitter" class="icon-twitter"></i></a>
+                    <a href="${student.twitt_link}" class="icon-twitter"></i></a>
+                    <a href="${student.face_link}" class="icon-fb"></i></a>
                     <i id="github" class="icon-github"></i>
                     <i id="stack" class="icon-stackexchange"></i>
                     <i id="linkedin" class="icon-linkedin-sign"></i>
                   </div>
                 </div>
               </div>
-            </div>`);  
-      });
+            </div>`);
+        });
     }
 
     console.log('Hello from script');
