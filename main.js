@@ -102,7 +102,7 @@ app.listen(port, () => {
 
 
 function auth(req, res, next) {
-  if(req.session && req.session.user === 'jan' && req.session.admin) {
+  if(req.session && req.session.user === 'admin' && req.session.admin) {
       return next();
   }
   else {
