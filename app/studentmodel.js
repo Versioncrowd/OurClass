@@ -7,7 +7,7 @@ var studentSchema = new Schema({
 	subjects: Array,
 	gender: String,
 	updated: Date,
-	address: Schema.Types.Mixed
+	address: Schema.Types.Mixed,
   role: String
 });
 
