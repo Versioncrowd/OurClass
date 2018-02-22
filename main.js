@@ -1,9 +1,9 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-const recipe = require('./app/controllers/project.controller.js');
 const Student = require('./app/controllers/students.controller.js');
 const mongoose = require('mongoose');
+const session = require('express-session');
 
 // create express app
 const app = express();
@@ -69,3 +69,43 @@ router.get("/", (req, res) => {
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}`);
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function auth(req, res, next) {
+  if(req.session && req.session.user === 'jan' && req.session.admin) {
+      return next();
+  }
+  else {
+      return res.sendStatus(401);
+  }
+}
