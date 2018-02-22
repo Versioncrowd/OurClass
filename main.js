@@ -1,8 +1,7 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-const recipe = require('./app/controllers/project.controller.js');
-const Student = require('./app/controllers/students.controller.js');
+const student = require('./app/controllers/students.controllers.js');
 const mongoose = require('mongoose');
 
 // create express app
@@ -60,12 +59,37 @@ router.post('/api/logout'), (req,res) => {
 }
 
 
+// Create a new student
+router.post('/api/student', student.create);
+
+// Retrieve all students
+router.get('/api/students', student.findAll);
+
+// Retrieve a single student with studentId
+router.get('/api/student/:studentId', student.findOne);
+
+router.get('/api/subjects/:subject', student.findBySubject);
+
+router.get('/api/genders/:gender', student.findByGender);
+
+router.get('/api/age/:age', student.findByAge);
+
+// Update a student with studentId
+router.put('/api/student/:studentId', student.update);
+
+// Delete a student with studentId
+router.delete('/api/student/:studentId', student.delete);
+
+
 // Web
 router.get("/", (req, res) => {
   res.sendFile('index.html', { root: 'app/views' })
 });
 
 // listen for requests
+
+
+
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}`);
 });

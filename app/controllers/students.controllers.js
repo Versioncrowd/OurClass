@@ -1,4 +1,4 @@
-const Student = require('../app/students.model.js');
+const Student = require('./studentmodel.js');
 
 exports.create = function(req, res) {
     // Create and Save a new Student
