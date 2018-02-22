@@ -1,4 +1,4 @@
-export const modal = `
+exports.adminModel = `
 <div class="modal fade" id="theModal" tabindex="-1" role="dialog" aria-labelledby="theModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -56,3 +56,4 @@ export const modal = `
    </div>
   </div>
 </div>`
+

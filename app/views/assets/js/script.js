@@ -1,3 +1,5 @@
+import adminModel from './modules/dashbord.js';
+
 $(() => {
 
     function mkCards(data) {
@@ -50,7 +52,5 @@ $(() => {
         .fail(function(xhr) {
             console.log('error', xhr);
         });
-
-
 
 });
