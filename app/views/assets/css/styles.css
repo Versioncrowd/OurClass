@@ -102,13 +102,13 @@ second color:#ec1c23;
 
 }
 .slider .carousel-one{
-  background-image: url('assets/slider-1.jpg');
+  background-image: url('assets/images/slider-1.jpg');
 }
 .slider .carousel-two{
-  background-image: url('assets/slider-2.jpg');
+  background-image: url('assets/images/slider-2.jpg');
 }
 .slider .carousel-three{
-  background-image: url('assets/slider-3.jpg');
+  background-image: url('assets/images/slider-3.jpg');
 }
 /*  here end slider*/
 

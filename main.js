@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-const Student = require('./app/controllers/students.controller.js');
+const Student = require('./app/controllers/students.controllers');
 const mongoose = require('mongoose');
 const session = require('express-session');
 
