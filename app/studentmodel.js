@@ -8,6 +8,7 @@ var studentSchema = new Schema({
 	gender: String,
 	updated: Date,
 	address: Schema.Types.Mixed
+  role: String
 });
 
 studentSchema.pre('save', function(next) {
